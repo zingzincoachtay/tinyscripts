@@ -1,0 +1,14 @@
+After each loops 8388608 times, time elapsed is:
+
+*** Test Results are ***
+>do	005663334: 9.00 secs
+>do	006292480: 10.00 secs
+>do	006921625: 13.00 secs
+>do	007550771: 15.00 secs
+>do	008179916: 17.00 secs
+>while	005663334: 8.00 secs
+>while	006292480: 9.00 secs
+>while	006921625: 11.00 secs
+>while	007550771: 13.00 secs
+>while	008179916: 16.00 secs
+*** ################ ***

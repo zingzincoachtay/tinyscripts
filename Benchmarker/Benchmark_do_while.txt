@@ -1,0 +1,19 @@
+Which two will you compare?
+do,while
+*** Test Results are ***
+do	004194304: 3.00 secs
+do	008388608: 5.00 secs
+do	016777216: 9.00 secs
+do	033554432: 17.00 secs
+do	067108864: 34.00 secs
+do	134217728: 68.00 secs
+do	268435456: 194.00 secs
+while	004194304: 5.00 secs
+while	008388608: 9.00 secs
+while	016777216: 18.00 secs
+while	033554432: 37.00 secs
+while	067108864: 73.00 secs
+while	134217728: 145.00 secs
+while	268435456: 289.00 secs
+*** ################ ***
+

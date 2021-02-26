@@ -1,0 +1,14 @@
+After each loops 33554432 times, time elapsed is:
+
+*** Test Results are ***
+>do	022650265: 36.00 secs
+>do	025166848: 44.00 secs
+>do	027683430: 56.00 secs
+>do	030200012: 78.00 secs
+>do	032716595: 102.00 secs
+>while	022650265: 70.00 secs
+>while	025166848: 83.00 secs
+>while	027683430: 99.00 secs
+>while	030200012: 118.00 secs
+>while	032716595: 137.00 secs
+*** ################ ***

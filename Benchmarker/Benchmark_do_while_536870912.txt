@@ -1,0 +1,20 @@
+After each loops 536870912 times, time elapsed is:
+
+*** Test Results are ***
+do	004194304: 2.00 secs
+do	008388608: 4.00 secs
+do	016777216: 9.00 secs
+do	033554432: 17.00 secs
+do	067108864: 35.00 secs
+do	134217728: 70.00 secs
+do	268435456: 164.00 secs
+while	004194304: 3.00 secs
+while	008388608: 5.00 secs
+while	016777216: 13.00 secs
+while	033554432: 30.00 secs
+while	067108864: 67.00 secs
+while	134217728: 137.00 secs
+while	268435456: 279.00 secs
+*** ################ ***
+2 4 9 17 35 70 164 3 5 13 30 67 137 279
+

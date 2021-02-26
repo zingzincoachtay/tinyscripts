@@ -1,0 +1,727 @@
+%alternative(+/-)
+%negative, decimal
+\documentclass{jreport}
+\title{Continued Fraction (\LaTeX)}
+\author{ALEX}
+\date{}
+
+\paperwidth 597pt%	1
+\paperheight 845pt%	2
+\voffset 0pt%		3
+\hoffset 0pt%		4
+\topmargin -4pt%	5
+\headheight 12pt%	6
+\headsep 25pt%		7
+\topskip 0pt%		8
+\oddsidemargin -25pt%	9
+\evensidemargin -25pt%	A
+\textwidth 497pt%	B
+\textheight 643pt%	C
+\footskip 30pt%		D
+\marginparsep 10pt%	E
+\marginparwidth 60pt%	F
+\marginparpush 7pt%	G
+
+\begin{document}
+\maketitle
+%\pagestyle{empty}
+%\thispagestyle{empty}
+
+\chapter*{Introduction of Continued Fraction}
+
+\section*{General Form of C.F.}
+Does this fractions bring you a bell?
+\[\frac{N}{D}=a+\frac{1}{b+\frac{1}{c+\frac{1}{d+\frac{1}{d+...}}}}\]
+
+This type of fractions are called continued fraction. In general, N,D,a,b,c,d, etc, are all positive whole numbers. The value of a is 0 only when the original fraction is less than 1. It is used to rewrite the simplest fraction and approximate the irrational numbers or the transcendental numbers.
+
+\section*{How to Make Fraction into C.F.}
+Let's make continued fraction. You can use any fractions to make a continued fraction. 
+
+\begin{minipage}{\textwidth}
+\begin{center}
+\begin{enumerate}
+\item change an improper fraction to a mixed fraction $(a+\frac{N}{D})$
+\item take reciprocal of fraction $(a+\frac{1}{\frac{D}{N}})$
+\item continue proc1 and proc 2 $(a+\frac{1}{b+\frac{1}{\frac{D}{N}}})$
+\end{enumerate}
+\end{center}
+\end{minipage}
+
+We continue until either a numerator or a denominator of the fraction becomes $1$. When a fraction has a numerator of $1$, the fraction is less than $1$. When a fraction has a denominator of $1$, the denominator is eventually $D+1$. 
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$\frac{22}{7}$ & $\frac{3}{5}$\\
+$3+\frac{1}{7}$ & $0+\frac{3}{5}$\\
+ & $0+\frac{1}{\frac{5}{3}}$\\
+ & $0+\frac{1}{1+\frac{2}{3}}$\\
+ & $0+\frac{1}{1+\frac{1}{\frac{3}{2}}}$\\
+ & $0+\frac{1}{1+\frac{1}{1+\frac{1}{2}}}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+
+\section*{Different Notation of C.F.}
+There are several ways to express continued fraction. When the continued fraction is long, the original form takes more vertical spaces. For example, some books write continued fraction:
+\[a+\frac{1}{b+}\frac{1}{c+}\frac{1}{c+}\frac{1}{d+...}\]
+This expression is called \textbf{shorthand}. It take less vertical space.
+
+When some documantation cannot use mathematical expression, they have to right the continued fraction simpler. The another expression that we can use spends only one line:
+\[a+1/(b+1/(c+1/(d+...)))\]
+The problem of this is that we can easily get confused with brakets. We might also use this expression in coding. It is hard to make sure right number of brakets at the end.
+
+In math, we write only the integers. Therefore the notation is much different. Since we use only the integer, we assume that the numerator is always 1. Also the operator is assumed to be addition.:
+\[\frac{N}{D}=a+\frac{1}{b+\frac{1}{c+\frac{1}{d+\frac{1}{d+...}}}}=[a;b,c,d,...]\]
+I have to note that the first number (a) is separated with semicolon (;), and the rest is separated with comma (,).
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$\frac{22}{7}$ & $\frac{3}{5}$\\
+$=[3;7]$ & $=[0;1,1,2]$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+
+\chapter*{Characteristics of Fractions}
+
+\section*{C.F. and its Reciprocal}
+We can find a pattern in continued fractions of a fraction and its reciprocal. We can easily infer this pattern exist, too. Remember what is "reciprocal" and how we generate continued fractions? Let's look at sample.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+$frac<1$ & C.F. & C.F. list & $\frac{1}{frac}$\\
+\hline
+$\frac{1}{7}$ = $.\overline{142857}$ & $0+\frac{1}{7}$ & $[0;7]$ &\\
+ & $7$ & $[7;]$ & $\frac{7}{1}$\\
+\hline
+$\frac{2}{7}$ = $.\overline{285714}$ & $0+\frac{1}{3+\frac{1}{2}}$ & $[0;3,2]$ &\\
+ & $3+\frac{1}{2}$ & $[3;2]$ & $\frac{7}{2}$\\
+\hline
+$\frac{3}{7}$ = $.\overline{428571}$ & $0+\frac{1}{2+\frac{1}{3}}$ & $[0;2,3]$ &\\
+ & $2+\frac{1}{3}$ & $[2;3]$ & $\frac{7}{3}$\\
+\hline
+$\frac{4}{7}$ = $.\overline{571428}$ & $0+\frac{1}{1+\frac{1}{1+\frac{1}{3}}}$ & $[0;1,1,3]$ &\\
+ & $1+\frac{1}{1+\frac{1}{3}}$ & $[1;1,3]$ & $\frac{7}{4}$\\
+\hline
+$\frac{5}{7}$ = $.\overline{714285}$ & $0+\frac{1}{1+\frac{1}{2+\frac{1}{2}}}$ & $[0;1,2,2]$ &\\
+ & $1+\frac{1}{2+\frac{1}{2}}$ & $[1;2,2]$ & $\frac{7}{5}$\\
+\hline
+$\frac{6}{7}$ = $.\overline{285714}$ & $0+\frac{1}{1+\frac{1}{6}}$ & $[0;1,6]$ & \\
+ & $1+\frac{1}{6}$ & $[1;6]$ & $\frac{7}{6}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Do you notice the pattern? First, the continued fractions are reciprocal to one another. This is pretty understandable because the sample is created with fractions and their reciprocals. Second, the C.F. lists are similar. The difference is the first number; the fractions less than 1 has 0 as the first number. The same sequence is appeared in C.F. list of fractions and their reciprocal.
+
+\section*{C.F. and GCD}
+When you are working with large numbers of fraction, let's say hundreds or thousands, it is a heavy task to find the common divisor. You have to know all the divisors to find the GCD. However, the continued fraction can reduce load of task. This is the oldest method to find \textit{The Greates Common Divisor}, know probably since 4000BC-3000BC. This method is precise and works with any two numbers. The \textbf{\textit{last non-zero reminder}} is the GCD of the fraction. Example:
+\[\frac{756}{162}\]
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|rrrrr|}
+\hline
+756 & - & 162 $\times$ 4 & = & 108\\
+162 & - & 108 $\times$ 1 & = & \textbf{\textit{54}}\\
+108 & - & 54 $\times$ 2 & = & 0\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+This method is also used in computater as an algorithm to find GCD. It's simple enough even for me to make one program to find the GCD using this algorithm.
+\begin{flushright}
+\underline{gcd.pl}
+\end{flushright}
+\[\frac{756}{162}=4+\frac{108}{162}=4+\frac{1}{\frac{162}{108}}=5+\frac{1}{1+\frac{54}{108}}=5+\frac{1}{1+\frac{1}{\frac{108}{54}}}=5+\frac{1}{1+\frac{1}{2}}\]
+
+\section*{C.F. and Rational Fraction}
+There may be two major ways to convert rational fraction into continued fractions. The first way is to convert the decimal into a fraction. This method will give accurate and certain continued fractions. But there may not be good use of it because you already find the fraction. The second way is to separate a decimal into integer part and fraction part. This procedure also can provide continued fraction. However, you have to obtain the decimal value of the reciprocal of the fraction part. You may need a calculator unless you are very good at algebra... One more fraud is that the reciprocal sometimes give an error. Let's see how this turn out ...
+
+\begin{center}
+Sample I. $.\overline{123}$
+\end{center}
+\begin{table}[htbp]
+\begin{tabular}{|rcr|}
+\hline
+$y$ & = & $.123123123...$\\
+$100y$ & = & $123.123123123...$\\
+\hline
+\end{tabular}
+\end{table}
+\[99y=123\]
+\[y=\frac{123}{99}\]
+\[\frac{123}{99}=1+\frac{24}{99}=1+\frac{1}{\frac{99}{24}}=1+\frac{1}{4+\frac{3}{24}}=1+\frac{1}{4+\frac{1}{\frac{24}{3}}}=1+\frac{1}{4+\frac{1}{8}}=[1;4,8]\]
+
+See it? Regardless of simplifying the fraction, you will always get the continued fraction. This continued fraction will give the simple fraction. Let's see if that's correct...
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\underline{gcd.pl} & $\gcd(123,99)=3$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+According to the \underline{gcd.pl}, the greatest common divisor is $3$. You will also see it in the continued fraction. $3$ is the last reminder of continued fraction before the reminder of the fraction is $0$.
+\[\frac{123}{99}=\frac{41}{33}\]
+\[1+\frac{1}{4+\frac{1}{8}}=1+\frac{1}{\frac{33}{8}}=1+\frac{8}{33}=\frac{41}{33}=.123123123=.\overline{123}\]
+
+I'm glad that my demonstration went well...
+
+\begin{center}
+Sample II. $2.8125$
+\end{center}
+\begin{table}[htbp]
+\begin{flushleft}
+\begin{tabular}{|rcr|rcr|rcr|}
+\hline
+$2$ & + & $.8125$ &  &  &  &  &  &\\
+\hline
+  &  &  & $\frac{1}{.8125}$ &  &  &  &  &\\
+  &  &  & 1.230769 &  &  &  &  &\\
+  &  &  & 1 & + & .230769 &  &  &\\
+\hline
+  &  &  &  &  & $\frac{1}{.230769}$ &  &  &\\
+  &  &  &  &  & 4.3333339 &  &  &\\
+  &  &  &  &  & 4 & + & .3333339 &\\
+\hline
+  &  &  &  &  &  &  &  & $\frac{1}{.3333339}$\\
+  &  &  &  &  &  &  &  & 2.99999949\\
+  &  &  &  &  &  &  &  & $\approx3$\\
+\hline
+\end{tabular}
+\end{flushleft}
+\end{table}
+
+This table is based on a simple and old calculator. So the value is a bit off. I stopped by taking the closest integer. However, I could take one more value if I continue.
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|rrr|r|}
+\hline
+2 & + & .9999949 &\\
+\hline
+  &  &  & $\frac{1}{.9999949}$\\
+  &  &  & 1.0000051\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+At this point, I have to stop because the reciprocal of a decimal like $.0000051$ is too large to add in a list of continued fraction.
+
+If I use a newer calculator like TI-86, the values are more accurate. Eventually I get exactly $3$ at the end. Then I know I can end the procedure.
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|rrr|l|}
+\hline
+$\frac{1}{.8125}$ & $\neq$ & 1.2307692 & \\
+ & = & 1.2307692 & this is a coincident\\
+\hline
+$\frac{1}{.2307692}$ & $\neq$ & 4.333339 & \\
+ & = & 4.333333 & see?\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\[[2;1,4,3]=2+\frac{1}{1+\frac{1}{4+\frac{1}{3}}}\]
+\[2+\frac{1}{1+\frac{1}{4+\frac{1}{3}}}=2+\frac{1}{1+\frac{1}{\frac{13}{3}}}=2+\frac{1}{1+\frac{3}{13}}=2+\frac{1}{\frac{16}{13}}=2+\frac{13}{16}=\frac{45}{16}=2.8125\]
+
+While I was taking reciprocal with a calculator, I made a mistake. So you have to be careful with using this method. Anyway, when you decide to stop the procedure, you will take the closest integer. If you are not still sure, you continue the procedure until you get the fraction part closest to $0$. like $7.0000014$ or $1.0000016$. (The reciprocals of $.0000014$ or $.0000016$ are $714285.71$... or $625000$. They are too big for continued fraction.)
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|lllrl|l|}
+\hline
+... & 2 & + & .9999949 &  & \\
+... &  &  & $\frac{1}{.9999949}$ &  & \\
+... &  &  & 1.0000051 &  & \\
+... &  &  & 1 & + & .0000051\\
+\hline
+... &  &  &  &  & $4+\frac{1}{2+\frac{1}{1}}=4+\frac{1}{3}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Alternatively, we can also take a proper fraction if the decimal has finite number of decimal places. Let's take a decimal I used before $(2.8125)$ and Euclid's algorithm to find GCD.
+
+\[2.8125=\frac{28125}{10000}\]
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|rcrcccr|}
+\hline
+$28125$ & - & $10000$ & $\times$ & $2$ & = & $8125$\\
+$10000$ & - & $8125$ & $\times$ & $1$ & = & $1875$\\
+$8125$ & - & $1875$ & $\times$ & $4$ & = & $625$\\
+$1875$ & - & $625$ & $\times$ & $3$ & = & $0$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\[2.8125=[2;1,4,3]\]
+
+Then we can recover the lower form of fraction. 
+
+\section*{C.F.of Irrational numbers}
+At this high school level, you should be familiar with the expression like $\sqrt{2}$ or $\pi$. They are called irrational numbers because their decimals don't have repeating sequence. However, they have a repeating sequence when expressed as continued fraction.
+
+The continued fraction of square-root, eg. $\sqrt{2}$
+\[\sqrt{2}\]
+\begin{center}
+since the $sqrt{2}$ is $1<\sqrt{2}<2$, we espress it as:
+\end{center}
+\[\sqrt{2}=1+\frac{1}{x}\]
+\begin{center}
+It's expressed in terms of integer and fraction. Now we have to find the x-value.
+\end{center}
+\[\sqrt{2}-1=\frac{1}{x}\]
+\[x=\frac{1}{\sqrt{2}-1}\]\
+\[x=\frac{1}{\sqrt{2}-1}\times\frac{\sqrt{2}+1}{\sqrt{2}+1}\]
+\[x=\frac{\sqrt{2}+1}{2-1}\]
+\[x=\frac{(1+\frac{1}{x})+1}{1}\]
+\[x=2+\frac{1}{x}\]
+
+\begin{center}
+Therefore;
+\end{center}
+\[\sqrt{2}=1+\frac{1}{2+\frac{1}{2+\frac{1}{2+\frac{1}{...}}}}=[1;2,2,2,2....]\]
+
+Here are for the other radicals...
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$\sqrt{1}=[1;]$ & $\sqrt{34}=[5;\overline{1,4,1,10}]$ & $\sqrt{67}=[8;\overline{5,2,1,1,7,1,1,2,5,16}]$\\
+$\sqrt{2}=[1;\overline{2}]$ & $\sqrt{35}=[5;\overline{1,10}]$ & $\sqrt{68}=[8;\overline{4,16}]$\\
+$\sqrt{3}=[1;\overline{1,2}]$ & $\sqrt{36}=[6;]$ & $\sqrt{69}=[8;\overline{3,3,1,4,1,3,3,16}]$\\
+$\sqrt{4}=[2;]$ & $\sqrt{37}=[6;\overline{12}]$ & $\sqrt{70}=[8;\overline{2,1,2,1,2,16}]$\\
+$\sqrt{5}=[2;\overline{4}]$ & $\sqrt{38}=[6;\overline{6,12}]$ & $\sqrt{71}=[8;\overline{2,2,1,7,1,2,2,16}]$\\
+$\sqrt{6}=[2;\overline{2,4}]$ & $\sqrt{39}=[6;\overline{4,12}]$ & $\sqrt{72}=[8;\overline{2,16}]$\\
+$\sqrt{7}=[2;\overline{1,1,1,4}]$ & $\sqrt{40}=[6;\overline{3,12}]$ & $\sqrt{73}=[8;\overline{1,1,5,5,1,1,16}]$\\
+$\sqrt{8}=[2;\overline{1,4}]$ & $\sqrt{41}=[6;\overline{2,2,12}]$ & $\sqrt{74}=[8;\overline{1,1,1,1,16}]$\\
+$\sqrt{9}=[3;]$ & $\sqrt{42}=[6;\overline{2,12}]$ & $\sqrt{75}=[8;\overline{1,1,1,16}]$\\
+$\sqrt{10}=[3;\overline{6}]$ & $\sqrt{43}=[6;\overline{1,1,3,1,5,1,3,1,1,12}]$ & $\sqrt{76}=[8;\overline{1,2,1,1,5,4,5,1,1,2,1,16}]$\\
+$\sqrt{11}=[3;\overline{3,6}]$ & $\sqrt{44}=[6;\overline{1,1,1,2,1,1,1,12}]$ & $\sqrt{77}=[8;\overline{1,3,2,3,1,16}]$\\
+$\sqrt{12}=[3;\overline{2,6}]$ & $\sqrt{45}=[6;\overline{1,2,2,2,1,12}]$ & $\sqrt{78}=[8;\overline{1,4,1,16}]$\\
+$\sqrt{13}=[3;\overline{1,1,1,1,6}]$ & $\sqrt{46}=[6;\overline{1,3,1,1,2,6,2,1,1,3,1,12}]$ & $\sqrt{79}=[8;\overline{1,7,1,16}]$\\
+$\sqrt{14}=[3;\overline{1,2,1,6}]$ & $\sqrt{47}=[6;\overline{1,5,1,12}]$ & $\sqrt{80}=[8;\overline{1,16}]$\\
+$\sqrt{15}=[3;\overline{1,6}]$ & $\sqrt{48}=[6;\overline{1,12}]$ & $\sqrt{81}=[9;]$\\
+$\sqrt{16}=[4;]$ & $\sqrt{49}=[7;]$ & $\sqrt{82}=[9;\overline{18}]$\\
+$\sqrt{17}=[4;\overline{8}]$ & $\sqrt{50}=[7;\overline{14}]$ & $\sqrt{83}=[9;\overline{9,18}]$\\
+$\sqrt{18}=[4;\overline{4,8}]$ & $\sqrt{51}=[7;\overline{7,14}]$ & $\sqrt{84}=[9;\overline{6,18}]$\\
+$\sqrt{19}=[4;\overline{2,1,3,1,2,8}]$ & $\sqrt{52}=[7;\overline{4,1,2,1,4,14}]$ & $\sqrt{85}=[9;\overline{4,1,1,4,18}]$\\
+$\sqrt{20}=[4;\overline{2,8}]$ & $\sqrt{53}=[7;\overline{3,1,1,3,14}]$ & $\sqrt{86}=[9;\overline{3,1,1,1,8,1,1,1,3,18}]$\\
+$\sqrt{21}=[4;\overline{1,1,2,1,1,8}]$ & $\sqrt{54}=[7;\overline{2,1,6,1,2,14}]$ & $\sqrt{87}=[9;\overline{3,18}]$\\
+$\sqrt{22}=[4;\overline{1,2,4,2,1,8}]$ & $\sqrt{55}=[7;\overline{2,2,2,14}]$ & $\sqrt{88}=[9;\overline{2,1,1,1,2,18}]$\\
+$\sqrt{23}=[4;\overline{1,3,1,8}]$ & $\sqrt{56}=[7;\overline{2,14}]$ & $\sqrt{89}=[9;\overline{2,3,3,2,18}]$\\
+$\sqrt{24}=[4;\overline{1,8}]$ & $\sqrt{57}=[7;\overline{1,1,4,1,1,14}]$ & $\sqrt{90}=[9;\overline{2,18}]$\\
+$\sqrt{25}=[5;]$ & $\sqrt{58}=[7;\overline{1,1,1,1,1,1,14}]$ & $\sqrt{91}=[9;\overline{1,1,5,1,5,1,1,18}]$\\
+$\sqrt{26}=[5;\overline{10}]$ & $\sqrt{59}=[7;\overline{1,2,7,2,1,14}]$ & $\sqrt{92}=[9;\overline{1,1,2,4,2,1,1,18}]$\\
+$\sqrt{27}=[5;\overline{5,10}]$ & $\sqrt{60}=[7;\overline{1,2,1,14}]$ & $\sqrt{93}=[9;\overline{1,1,1,4,6,4,1,1,1,18}]$\\
+$\sqrt{28}=[5;3,2,3,10]$ & $\sqrt{61}=[7;\overline{1,4,3,1,2,2,1,3,4,1,14}]$ & $\sqrt{94}=[9;\overline{1,2,3,1,1,5,1,8,1,5,1,1,3,2,1,18}]$\\
+$\sqrt{29}=[5;\overline{2,1,1,2,10}]$ & $\sqrt{62}=[7;\overline{1,6,1,14}]$ & $\sqrt{95}=[9;\overline{1,2,1,18}]$\\
+$\sqrt{30}=[5;\overline{2,10}]$ & $\sqrt{63}=[7;\overline{1,14}]$ & $\sqrt{96}=[9;\overline{1,3,1,18}]$\\
+$\sqrt{31}=[5;\overline{1,1,3,5,3,1,1,10}]$ & $\sqrt{64}=[8;]$ & $\sqrt{97}=[9;\overline{1,5,1,1,1,1,1,1,5,1,18}]$\\
+$\sqrt{32}=[5;\overline{1,1,1,10}]$ & $\sqrt{65}=[8;\overline{16}]$ & $\sqrt{98}=[9;\overline{1,8,1,18}]$\\
+$\sqrt{33}=[2;\overline{1,2,1,10}]$ & $\sqrt{66}=[8;\overline{8,16}]$ & $\sqrt{99}=[9;\overline{1,18}]$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+
+In the case of radicals, we could use method to find the pattern in continued fraction. However, we cannot use for the irrational number like $\pi$ or $e$. For those type of irrational numbers, it is better to use Euclid's algorithm. 
+\[\pi \approx 3.1415926536.... \approx \frac{31415926536}{10000000000}\]
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|rc|c|crcr|}
+\hline
+31415926536 & - & \textbf{3} & $\times$ & 10000000000 & = & 1415926536\\
+10000000000 & - & \textbf{7} & $\times$ & 1415926536 & = & 88514248\\
+1415926536 & - & \textbf{15} & $\times$ & 88514248 & = & 88212816\\
+88514248 & - & \textbf{1} & $\times$ & 88212816 & = & 301432\\
+88212816 & - & \textbf{292} & $\times$ & 301432 & = & 194672\\
+301432 & - & \textbf{1} & $\times$ & 194672 & = & 106760\\
+194672 & - & \textbf{1} & $\times$ & 106760 & = & 87912\\
+106760 & - & \textbf{1} & $\times$ & 87912 & = & 18848\\
+\hline
+87912 & - & \textbf{4} & $\times$ & 18848 & = & 12520\\
+18848 & - & \textbf{1} & $\times$ & 12520 & = & 6328\\
+12520 & - & \textbf{1} & $\times$ & 6328 & = & 6192\\
+6328 & - & \textbf{1} & $\times$ & 6192 & = & 136\\
+6192 & - & \textbf{45} & $\times$ & 136 & = & 72\\
+136 & - & \textbf{1} & $\times$ & 72 & = & 64\\
+72 & - & \textbf{1} & $\times$ & 64 & = & 8\\
+64 & - & \textbf{8} & $\times$ & 8 & = & 0\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\[\pi \approx [3;7,15,1,292,1,1,1,2,1,3,1,14,2,1,1...]\]
+
+\pagebreak
+
+\subsection*{just a tip: History of $\pi$}
+The circle and sphere were always people's fascination. People were wondered why these shapes are so perfect. They knew that there is a constant that allows to make such shapes. But they didn't know the value. Euclid, who completed a book that gathered math knowledge at that time, also states the existance of the constant but never mentioned the value. Many scholars tried to find the true value. For a long time, people were using 3 as $\pi$ because the Bible stated so. However, if you take a rope and measure the circumference after you draw a circle with the rope, you will clearly see that you need more than 3 ropes.
+
+In fact, this is how the ancient people did. After you take 3 of rope(1), you take the length of the reminder, rope(2). Then you count how many rope(2) you can take from the rope(1). Then again, you take reminder, rope(3) to count how many rope(3) you can take from rope(2). When you continued this method infinite times (in reality, you can continue only the specific repetitions), you are able to obtain the $\pi$. The ancient people found that the length was approximately 3 ropes and $\frac{1}{7}$ of the rope, ($\approx 3.14$). If you are careful enough, you will notice that their procedures are similar to what I did to find the \textit{continued fraction} of $\pi\and e$.
+
+In Egypt, they had a method to find the length of side of a square that has same area with the circle. A'h-mose wrote a book about math about 1650B.C. This oldest math paper(papyrus) is named after an acheologist, Henry Rhynd. assume $d$ is the diameter,
+\[A_{square}=(d-\frac{1}{9}d)^2\approx A_{circle}=(\frac{d}{2})^2\pi\]
+\[\pi\approx (\frac{16}{9})^2\approx 3.16\]
+
+The other famous fractions for $\pi$ are
+\[\frac{355}{113},\frac{22}{7}\]
+
+The first person who actually found the $\pi$ algebraically was the genius of Ancient Greek, Archimedes. His idea was to find the polygon that inscribe a circle. He calculated 96-sided polygon and get the inequality
+\[3\frac{10}{71}<\pi<3\frac{10}{70}\]
+
+The first person who made an \textbf{equality} of $\pi$ was Viete. He expressed $\pi$,
+\[\pi=\frac{2}{\sqrt{\frac{1}{2}} \sqrt{\frac{1}{2}+\frac{1}{2}\sqrt{\frac{1}{2}}} \sqrt{\frac{1}{2}+\frac{1}{2}\sqrt{\frac{1}{2}+\frac{1}{2}\sqrt{\frac{1}{2}}}}... }\]
+\[\prod_{n=2}^{\infty}cos \frac{\pi}{2^n}=\sqrt{\frac{1}{2}} \sqrt{\frac{1}{2}+\frac{1}{2}\sqrt{\frac{1}{2}}} \sqrt{\frac{1}{2}+\frac{1}{2}\sqrt{\frac{1}{2}+\frac{1}{2}\sqrt{\frac{1}{2}}}}... \]
+He used polygon but didn't start with Hexagon. He started with a square to find this equation.
+
+Wallis expressed the $\pi$ only with the integers. Gregory also found the way to express $\pi$ only with the fractions. But the mathematician who introduced the equation was \footnote{Leibniz was an elite mathematician, who is famous for finding Calculus and Gregory series.} Leibniz, one of the developer of Calculus. (Newton and Leibniz found it by their own but Newton introduced it earlier.)
+\[Wallis: \pi=2\times \frac{2\times2\times4\times4\times6\times6\times8\times8...}{1\times3\times3\times5\times5\times7\times7\times9...}=\prod_{m=1}^{\infty}\frac{2m\times2m}{(2m-1)\times{2m-1)}}\]
+\[Gregory,Leibniz: \arctan\theta = \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2n-1}\theta^{2n-1} =_{\theta=1} = \frac{\pi}{4} = 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\frac{1}{9}...\]
+When I programmed these two equation to calculate on computer, they gave same value. Then I proved they are the same but I won't do proof here.
+
+Leibniz's $\pi$ is not good approximation. However, Machin created the better approximation equation.
+\[\frac{\pi}{4}=4\arctan\frac{1}{5}+\arctan\frac{1}{239}\]
+
+Newton also found the equations for $\pi$.
+\[\frac{3}{4}\sqrt{3}+2-\frac{3}{20}-\sum_{k=1}^{\infty}\frac{3\times\prod_{i=0}^{k}(\frac{1}{2}-i)}{(k+\frac{5}{2})\times (k+1)!}\times \frac{1}{4}^{k+1}=\frac{3}{4}\sqrt{3}+24(\frac{1}{12}-\frac{1}{5\times 2^5}-\frac{1}{28\times 2^7}-\frac{1}{72\times 2^9}...\]
+\[\arcsin \frac{1}{2}=\frac{\pi}{6}=\frac{1}{2}+\sum_{n=1}^{\infty} \frac{\prod_{k=1}^{n}(2k-1)}{\prod_{k=1}^{n}(2k)}\cdot\frac{1}{2n+1}\cdot\frac{1}{2^{2n+1}}=\frac{1}{2}+\frac{1}{2}\cdot\frac{1}{3}\cdot\frac{1}{2^3}+\frac{1\cdot3}{2\cdot4}\cdot\frac{1}{5}\cdot\frac{1}{2^5}+\frac{1\cdot3\cdot5}{2\cdot4\cdot6}\cdot\frac{1}{7}\cdot\frac{1}{2^7}...\]
+
+The last genius, Gauss found this equation
+\[\frac{\pi}{4}=12\arctan\frac{1}{18}+8\arctan\frac{1}{57}-5\arctan\frac{1}{239}\]
+
+Gauss-Legendre,
+\[a_{0}=1,b_{0}=\frac{1}{\sqrt{2}},t_{0}=\frac{1}{4}\]
+\[a_{k}=\frac{a_{k-1}+b{k-1}}{2},b_{k}=\sqrt{a_{k-1}b_{k-1}}, t_{k}=t_{k-1}-2^{k-1}(a_{k-1}-a_{k})^2\]
+If you need n decimals accuracy, you have to repeat calculating below for $p=\log_{2}n$ times.
+\[\pi=\frac{(a_{p}+b_{p})^2}{4t_{p}}\]
+
+Bolwein
+\[a_{0}=1,b_{0}=\frac{1}{\sqrt[4]{2}},t_{0}=\frac{5-2\sqrt{2}}{8}\]
+\[a_{k}=\frac{a_{k-1}+b_{k-1}}{2},b_{k}=\sqrt[4]{\frac{a_{k-1}b_{k-1}(a_{k-1}^2+b_{k-1}^2)}{2}},t_{k}=t_{k-1}+4^k\{a_{k}^4-(\frac{a_{k}^2+b_{k}^2}{2})^2\}\]
+If you need n decimals accuracy, you have to repeat calculating below for $p=\frac{\log_{2}n}{2}$ times.
+\[\pi=\frac{a_{p+1}^4}{1-2t_{p}}\]
+
+Anyway, there is no reason of attempting to find the true value of $\pi$. In 1761, Lambert prooved that $\pi$ is an irrational number with Brouncker's \textit{continued fraction}. In addition, in 1882, Lindemann proved that $\pi$ is transcendental, means that it cannot be the solution of any polynomial equations. He used the relationship which Euler found, $e^{i\pi}=-1$.
+
+\pagebreak
+
+\[e \approx 2.7182818285.... \approx \frac{27182818285}{10000000000}\]
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|rc|c|crcr|}
+\hline
+27182818285 & - & \textbf{2} & $\times$ & 10000000000 & = & 7182818285\\
+10000000000 & - & \textbf{1} & $\times$ & 7182818285 & = & 2817181715\\
+7182818285 & - & \textbf{2} & $\times$ & 2817181715 & = & 1548454855\\
+2817181715 & - & \textbf{1} & $\times$ & 1548454855 & = & 1268726860\\
+1548454855 & - & \textbf{1} & $\times$ & 1268726860 & = & 279727995\\
+1268726860 & - & \textbf{4} & $\times$ & 279727995 & = & 149814880\\
+279727995 & - & \textbf{1} & $\times$ & 149814880 & = & 129913115\\
+149814880 & - & \textbf{1} & $\times$ & 129913115 & = & 19901765\\
+129913115 & - & \textbf{6} & $\times$ & 19901765 & = & 10502525\\
+19901765 & - & \textbf{1} & $\times$ & 10502525 & = & 9399240\\
+10502525 & - & \textbf{1} & $\times$ & 9399240 & = & 1103285\\
+9399240 & - & \textbf{8} & $\times$ & 1103285 & = & 572960\\
+1103285 & - & \textbf{1} & $\times$ & 572960 & = & 530325\\
+572960 & - & \textbf{1} & $\times$ & 530325 & = & 42635\\
+\hline
+530325 & - & \textbf{12} & $\times$ & 42635 & = & 18705\\
+42635 & - & \textbf{1} & $\times$ & 18705 & = & 5225\\
+18705 & - & \textbf{3} & $\times$ & 5225 & = & 3030\\
+5225 & - & \textbf{1} & $\times$ & 3030 & = & 2195\\
+3030 & - & \textbf{1} & $\times$ & 2195 & = & 835\\
+2195 & - & \textbf{2} & $\times$ & 835 & = & 525\\
+835 & - & \textbf{1} & $\times$ & 525 & = & 310\\
+525 & - & \textbf{1} & $\times$ & 310 & = & 215\\
+310 & - & \textbf{1} & $\times$ & 215 & = & 95\\
+215 & - & \textbf{2} & $\times$ & 95 & = & 25\\
+92 & - & \textbf{3} & $\times$ & 25 & = & 20\\
+25 & - & \textbf{1} & $\times$ & 20 & = & 5\\
+20 & - & \textbf{4} & $\times$ & 5 & = & 0\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\[e\approx [2;1,2,1,1,4,1,1,6,1,1,8,1,1,10,1...]\]
+
+The definition of $e$:
+\[e=\lim_{n\rightarrow \infty}(a+\frac{1}{n})^n=2.7182818284590\]
+The Napier's number:
+\[e=\sum_{n=0}^{\infty}\frac{1}{n!},e^x=\sum_{n=0}^{\infty}\frac{x^n}{n!}\]
+
+The $e$ is proved to be a transcendental by Hermite in 1873.
+
+\begin{center}
+\begin{minipage}{10cm}
+The only reason why the series aren't correct is that i took only a few decimals. This can easily lead me to get a wrong continued fraction. It is well-known that the $\pi$ and $e$ is transcendental. The transcedental is a type of an irrational numbers. Therefore none of us can find the exact continued fraction since there is no exact fraction.
+\end{minipage}
+\end{center}
+
+\section*{C.F. and others}
+\textsc{Find a solution of a quadratic equation.}
+\begin{eqnarray}
+x^2-3x-3=0
+\end{eqnarray}
+\begin{eqnarray}
+x^2-3x-1=0
+\end{eqnarray}
+For example, we have this quadratic equation. I can solve this for x in terms of x... This sounds weird but just take a look at this:
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|lcl|}
+\hline
+x(1) & = & $3+\frac{3}{x}$\\
+     &   & $3+\frac{3}{3+\frac{3}{3+\frac{3}{...}}}$\\
+     & $\approx$ & 3.792\\
+     & = & $\frac{3\pm \sqrt{21}}{2}$\\
+\hline
+\end{tabular}
+\begin{tabular}{|lcl|}
+\hline
+x(2) & = & $3+\frac{1}{x}$\\
+     &   & $[3;\overline{3} ]$\\
+     & $\approx$ & 3.302\\
+     & = & $\frac{3\pm \sqrt{13}}{2}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+It's hard to make these things work with these equations...
+\[2x^2-3x-1=0\]\[6x^2+3x-4=0\]
+
+\pagebreak
+
+\chapter*{Association to Continued Fractions}
+
+\section*{Fibonacci numbers}
+
+At this point, I showed introduced the basic part of continued fraction. Now is the time for me to experiment. As a starter, I thought of a continued fraction made from only $1$, like this:
+\[1+\frac{1}{1+\frac{1}{1+\frac{1}{...}}}\]
+
+As I calculated it, I found:
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|lcr|}
+\hline
+1+1 & = & 2\\
+$1+\frac{1}{1+1}$ & = & $\frac{3}{2}$\\
+$1+\frac{1}{1+\frac{1}{1}}$ & = & $\frac{5}{3}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+This gave me the pattern that the number in numerator reappears at denominator of next fraction. Also, the numeric value is settling somewhere around $1.6$. However, I had to do more to find more pattern. I saw $2$ and recalled that $2=\frac{2}{1}$. So I took a reciprocal from each fraction.
+\[\frac{1}{2},\frac{2}{3},\frac{3}{5} = \frac{D_{n-1}}{N_{n-1}+D_{n-1}}\]
+Then I clearly saw a pattern that applies to all of fractions. The numbers appears in numerator and denominator is a part of \textbf{\textit{Fibonacci series}}. In addition, as I continued calculating the decimal value of the fractions, I found two values, $1.61803$ and $0.61803$. Obviously, there is a relationship between two numbers but I couldn't find the relationship until I did research. Anyway, we can rewrite the fraction:
+\[\frac{D_{n-1}}{N_{n-1}+D_{n-1}} = \frac{0}{1},\frac{1}{2},\frac{2}{3},\frac{3}{5},\frac{5}{8},\frac{8}{13},\frac{13}{21}\]
+If you take the numbers that appear twice:
+\[1,2,3,5,8,13\]
+This series is a part of Fibonacci series, defined as $Fib(n)=Fib(n-2)+Fib(n-1)$.
+
+More details about \textbf{\textit{Fibonacci numbers}} are on the other page.
+
+Further investigation brought me to \textbf{\textit{Silver Mean}}.
+
+\pagebreak
+
+\section*{Silver Mean}
+
+On the previous page, I investigated the continued fraction $[1;1,1,1,1...]$. Next step was to change the number. How about the continued fraction of:
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|}
+\hline
+$[2;2,2,2,2...]$\\
+$[3;3,3,3,3...]$\\
+$[4;4,4,4,4...]$\\
+$[5;5,5,5,5...]$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Each continued fraction has a constant. They are called \textbf{\textit{Silver Mean}} because they share similar property with Golden section. ... that is:
+\[S(n)=1+\frac{1}{S(n)}\]
+In order to get the numeric value, we cannot use continued fraction. Therefor we have to use a quadratic equation. The formula for $\phi$ is convenient. I will talk about $\phi$ later.
+\[\phi=1+\frac{1}{\phi}\]
+In general,
+\[x=a+\frac{1}{x}\]
+where a is the constant in the continued fraction. Solve for x,
+\[x=\frac{a\pm \sqrt{a^2+4}}{2}\]
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|lcc|}
+\hline
+$[2;2,2,2,2...]$ & = & $1\pm \sqrt{2}$\\
+$[3;3,3,3,3...]$ & = & $\frac{3\pm \sqrt{13}}{2}$\\
+$[4;4,4,4,4...]$ & = & $2\pm \sqrt{5}$\\
+$[5;5,5,5,5...]$ & = & $\frac{5\pm \sqrt{29}}{2}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+
+\section*{Special constants}
+\[e\]
+This constant is a base of natural logarithm. $e$ is defined as:
+\[e=\lim_{n\rightarrow \infty}{(1+\frac{1}{n})}^n\]
+It's continued fraction is found by Leonhard Euler, that are:
+\[e-1=1+\frac{2}{2+\frac{3}{3+\frac{4}{4+\frac{5}{5+...}}}}=1+\frac{1}{1+\frac{1}{2+\frac{2}{3+\frac{3}{4+\frac{4}{5+...}}}}}\]
+Another form is introduced, which is:
+\[e=[2;1,2,1,1,4,1,1,6,1,1,8,1,1,10,1,...]\]
+The pattern is $...1,2n,1...$
+
+\[\sqrt{e}\]
+\[\sqrt{e}=[1;1,1,1,5,1,1,9,1,1,13,1,1,17,1,1...]\]
+
+\[\pi\]
+\[\frac{4}{\pi}=1+\frac{1^2}{2+\frac{3^2}{2+\frac{5^2}{2+\frac{7^2}{2+...}}}}\]
+\[\frac{4}{\pi}=1+\frac{1^2}{3+\frac{2^2}{5+\frac{3^2}{7+\frac{4^2}{9+...}}}}\]
+\[\pi=3+\frac{1^2}{6+\frac{3^2}{6+\frac{5^2}{6+\frac{7^2}{6+\frac{9^2}{6+...}}}}}\]
+\begin{center}
+\begin{minipage}{10cm}
+[3;7,15,1,292,1,1,1,2,1,3,1,14,2,1,1,2,2,2,2,1,84,2,1,1,15,3,13,1,4,2,6,6,
+99,1,2,2,6,3,5,1,1,6,8,1,7,1,2,3,7,1,2,1,1,12,1,1,1,3,1,1,8,1,1,2,1,6,1,1,
+5,2,2,3,1,2,4,4,16,1,161,45,1,22,1,2,2,1,4,1,2...]
+\end{minipage}
+\end{center}
+
+\[\sqrt{\pi}\]
+\begin{center}
+\begin{minipage}{10cm}
+[1;1,3,2,1,1,6,1,28,13,1,1,2,18,1,1,1,83,1,4,1,2,4,1,288,1,90,1,12,1,1,7,1,
+3,1,6,1,2,71,9,3,1,5,36,1,2,2,1,1,1,2,5,9,8,1,7,1,2,2,1,63,1,4,3,1,6,1,1,1,
+5,1,9,2,5,4,1,2,1,1,2,20,1,1,2,1,10,5,2,1,100,11,1,9,1,2,1,1,1,1,3,...]
+\end{minipage}
+\end{center}
+
+\pagebreak
+
+\chapter*{Fibonacci Numbers and Golden Section}
+
+\section*{Fibonacci Numbers}
+\begin{center}
+\begin{minipage}{10cm}
+Fibonacci introduced a problem in 1202:
+
+\itshape
+Suppose a newly-born pair of rabbits (one male, one female) are put in a field. The rabbits are able to mate at the age of one month so that at the end of its second month a female can produce another pair of rabbits. Suppose that our rabbits never die and that the female always produces one new pair every month from the second month on.
+\begin{center}
+How many pairs will there be in one year?
+\end{center}
+\end{minipage}
+\end{center}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+month & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+\hline
+rabbits & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 & 55 & 89 & 144\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+There is an interesting secret hidden in the series. Let's take a fraction of numbers next to each other.
+\[\frac{1}{1},\frac{1}{2},\frac{2}{3},\frac{3}{5},\frac{5}{8},\frac{8}{13},\frac{13}{21},\frac{21}{34},\frac{34}{55},\frac{55}{89},\frac{89}{144},\frac{144}{233} \approx 0.618\]
+\[\frac{1}{1},\frac{2}{1},\frac{3}{2},\frac{5}{3},\frac{8}{5},\frac{13}{8},\frac{21}{13},\frac{34}{21},\frac{55}{34},\frac{89}{55},\frac{144}{89},\frac{233}{144} \approx 1.618\]
+
+In addition, these constants are associated with $\phi(phi)$. The basic formula for $\phi$ is:
+\[\phi^2 = \phi + 1\]
+Also:
+\marginpar{L(n): Lucas number}
+\[\phi^n = \frac{L(n)+F(n)\sqrt{5}}{2} = \frac{Fib(n+1)+Fib(n-1)+Fib(n)\sqrt{5}}{2}\]
+
+In definition, phi can have negative value, defined as:
+\[\phi^2 = 1 - \phi\]
+\[(-\phi)^n = \frac{L(n)-F(n)\sqrt{5}}{2} = \frac{Fib(n+1)+Fib(n-1)+Fib(n)\sqrt{5}}{2}\]
+
+However, we cannot have negative constant in reality. The positive constant is also called the Golden section. We can find in the sculptures, the temples, and the ratio of widths of cards. The artists seek the golden section in art because the ratio (1.618) is mark of beauty.
+
+According to the formula of $\phi$,
+\[\phi = 1+\frac{1}{\phi}\]
+the continued fraction looks:
+\[\phi=1+\frac{1}{1+\frac{1}{1+\frac{1}{...}}}=[1;1,1,1...]\approx1.61803=\frac{1+\sqrt{5}}{2}\]
+\[\phi^{-1}=0+\frac{1}{1+\frac{1}{1+\frac{1}{...}}}=[0;1,1,1...]\approx.61803=\frac{-1+\sqrt{5}}{2}\]
+
+\section*{Lucas number}
+
+Lucas numbers are defined as L(n)=Fib(n-1)+Fib(n+1)
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+mth & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+\hline
+Fib & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 & 55 & 89 & 144\\
+\hline
+Luc & 2 & 1 & 3 & 4 & 7 & 11 & 18 & 29 & 47 & 76 & 123 & 199 & 322\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Take the ratio of numbers next to each other,
+\[\frac{2}{1},\frac{1}{3},\frac{3}{4},\frac{4}{7},\frac{7}{11},\frac{11}{18},\frac{18}{29},\frac{29}{47},\frac{47}{76},\frac{76}{123},\frac{123}{199},\frac{199}{322}\approx0.618\]
+\[\frac{1}{2},\frac{3}{1},\frac{4}{3},\frac{7}{4},\frac{11}{7},\frac{18}{11},\frac{29}{18},\frac{47}{29},\frac{76}{47},\frac{123}{76},\frac{199}{123},\frac{322}{199}\approx1.618\]
+
+\textsc{Relationship between Lucas numbers and Fibonacci numbers}
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|ccrcrcr|c|}
+\hline
+L(1)+L(3) & = & 1 & + & 4 & = & 5 & whereas Fib(2)=1\\
+L(2)+L(4) & = & 3 & + & 7 & = & 10 & whereas Fib(2)=2\\
+L(3)+L(5) & = & 4 & + & 11 & = & 15 & whereas Fib(2)=3\\
+L(4)+L(6) & = & 7 & + & 18 & = & 25 & whereas Fib(2)=5\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\[L(n-1)+L(n+1)=5\times Fib(n)\]
+
+As you see, there is similarity between Fibonacci numbers and Lucas numbers.
+
+By the way, a question:
+\begin{center}
+\begin{minipage}{10cm}
+\itshape 
+1. What is the relationship between F(n-2), F(n+2), and L(n)?
+
+2. What is the relationship between F(n-3), F(n+3), and L(n)?
+\end{minipage}
+\end{center}
+Answer: In general, when I defined a as the constant in $(x\pm a)$,
+\[L(n)=\frac{Fib(n+a)-Fib(n-a)}{a-1}\]
+
+\end{document}

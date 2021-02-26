@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>JavaScript Experiment</title>
+</head>
+
+<BODY onLoad="document.notice.vector.focus();Load('','');Switch(1);">
+
+<form name="notice">
+  <input type="text" name="vector" value="">
+  <input type="button" name="two" value="touch" onClick="Giveit()">
+</form>
+
+<script type="text/javascript">
+function Giveit(){
+  document.notice.vector.focus(); //alert("BACK!"); 
+}
+</script>
+
+<form name="ghost">
+  <input type="text" name="no_ne" onFocus="Load(this,'')" onBlur="Load(this,'no_ne')">
+  <input type="text" name="zilch" onFocus="Load(this,zilch)">
+</form>
+<script type="text/javascript">
+function Load(x,y){
+  x.value = y;
+}
+</script>
+
+<form name="emptiness">
+  <input type="text" name="textbox" onblur="checkemptiness(this);">
+  <input type="button" value="Press" onClick="document.emptiness.textbox.focus();">
+<script type="text/javascript">
+function checkemptiness(ip){
+  if(ip.value==''){ confirm("Really?"); document.emptiness.textbox.value="You should have typed something here.";}
+  else{ alert(ip.value);}
+  nSizeWidth=screen.width; alert("Current W: "+nSizeWidth); alert("Current H: "+screen.height);
+}
+</script>
+<BR>
+Show <input type="radio" name="peek" value="1" checked onClick="Show()">
+Hide <input type="radio" name="peek" value="0" onClick="Hide()">
+<script type="text/javascript">
+function Show(){        emptiness.textbox.style.visibility="visible";}
+function Hide(){        emptiness.textbox.style.visibility="hidden";}
+</script>
+<BR>
+<INPUT onclick=Switch(1) type=radio name=type CHECKED>タイプ１
+<INPUT onclick=Switch(2) type=radio name=type>タイプ２
+<SELECT size=1 name=lstusa>
+<OPTION selected></OPTION>
+<OPTION></OPTION>
+<OPTION></OPTION>
+<OPTION></OPTION>
+</SELECT>
+<script type="text/javascript">
+<!--//
+var arrType1 = new Array("タイプ１−１", "タイプ１−２");//ひとつめの配列
+var arrType2 = new Array("タイプ２−１", "タイプ２−２","タイプ２−３","タイプ２−４");//二つ目の配列
+var nLoop = 0;
+function Switch(nType){
+  var arrSwitch = new Array();
+  if (nType == 1) arrSwitch = arrType1;
+  else arrSwitch = arrType2;
+//  ClearList();
+  for (nLoop=0;nLoop<arrSwitch.length;nLoop++)
+    document.forms["emptiness"].elements["lstusa"].options[nLoop].text = arrSwitch[nLoop];
+}
+function ClearList(){ for (nLoop=0;nLoop<4;nLoop++) document.forms["emptiness"].elements["lstusa"].options[nLoop].text = "";}
+//-->
+</script>
+<BR>
+<input type=button onClick="window.open('b.htm','','menubar=1')" value="Menu">
+<input type=button onClick="window.open('b.htm','','status=1')" value="Status">
+<input type=button onClick="window.open('b.htm','','toolbar=1')" value="Toolbar">
+<input type=button onClick="window.open('b.htm','','scrollbars=1')" value="Scrollbar">
+<input type=button onClick="window.open('b.htm','','location=0')" value="URL bar">
+<input type=button onClick="window.open('b.htm','','directories=1')" value="Directory Menu">
+<input type=button onClick="window.open("b.htm","","width=200,height=200,resizable=0");" value="Open A Window">
+
+<BR>
+<INPUT type="button" onClick="window.moveTo(50,50)" value="Move to W:50 H:50">
+<BR>
+Window to <INPUT type="text" name="X" value="100" size="5"> x <INPUT type="text" name="Y" value="100" size="5">
+<INPUT type="button" onClick="Start()" value="Resize">
+<script type="text/javascript">
+<!--//
+function Start(){
+  var nX = eval(document.emptiness.X.value);
+  var nY = eval(document.emptiness.Y.value);
+  window.resizeTo(nX,nY);
+}
+//-->
+</script>
+<BR>
+<input type="text" name="email" >
+<input type="button" value="Check Email" onClick="return checkEmail(document.emptiness.email)">
+<script type="text/javascript">
+function checkEmail(email) {
+//var email = document.getElementById('U_EMAIL');
+var filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+  if (!filter.test(email.value)) {
+    alert("Check the email address. \n It will be used to send temporary password.");
+    email.focus();
+    return false;
+  }else{ alert("Looks good");}
+}
+</script>
+</form>
+
+<script type="text/javascript">
+<!--//
+//-->
+</script>
+
+var=new Array();        * Initialize array
+var=document.[form name].[input name].value.split('delimiter;); * Obtain from form
+var.length;     * size of array
+another.indexOf(var[k]);
+window.opener.document.
+
+</body>
+</html>
+
+

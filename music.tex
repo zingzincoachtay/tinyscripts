@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[dvips]{graphicx}
+\begin{document}
+
+\section*{Guitar}
+The scale of guitar is made by pressing frets to change the length of string. Assume, we make "do" without pressing any frets. We make a sound one octave higher by pressing at the midpoint.
+
+%\begin{figure}[htbp]
+%\begin{center}
+%\includegraphics{guitar.jpg}
+%\end{center}
+%\end{figure}
+
+There are 12 frets in BC. The ratio of length from A to one of frets and to right of the fret ($\frac{yellow dot on left}{yellow dot on right}$) is approximately .94. It's true for any combination of frets next to each other.
+
+Therefore, in order to obtain a value of length between A and the fret on the left, you multiply a certain ratio (r) with a length between A and the fret on the right. The question is what would be the ratio (r). It's easy. Let's say ... L is the length of the whole string. The length between A and the first fret is L$\times$r, the length between A and the second fret is L$\times r^2$, since new length is a ratio (r) $\times$ last length. You continue same things until you finish about all 12 frets and reach the midpoint. Since the midpoint is expressed as, $\frac{1}{2}a$, then:
+\[a\times r\times r\times r\times r\times r\times r\times r\times r\times r\times r\times r\times r\times r\times = \frac{1}{2}a\]
+\[r^{12} = \frac{1}{2}\]
+\[r = \sqrt[12]{\frac{1}{2}} = .9438743127\]
+
+The scale created by this is called the equal temperament scale. In about 16th century, this is invented. This scale is still used for the scale of instruments, even now. 
+
+\pagebreak
+
+\section*{Cembalo and Piano}
+If you play piano, you know the instrument called Cembalo. A cembalo is the ancestor of a piano. The lengths of the cords of 'do' in each octave are doubled. 
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+Length & L & 2L & $2^2L$ & $2^3L$ & $2^4L$\\
+Log & $log L$ & $log 2L$ & $log 2^2L$ & $log 2^3L$ & $log 2^4L$\\
+\end{tabular}
+\end{center}
+\end{table}
+
+As you can see, the length of the cembalo, (or rather the shape of the cembalo), is an exponential function. Furthermore, the keyboard is a logarithmic function. 
+\pagebreak
+
+\section*{Pythagorian Scale}
+
+
+\end{document}
